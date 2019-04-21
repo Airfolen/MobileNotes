@@ -19,7 +19,11 @@ namespace Notes.Clients
         [Get("/Note/GetNotes")]
         Task<List<NoteModel>> GetNotes();
 
-        [Get("/Note/Test")]
-        Task<string> Test();
+        /// <summary>
+        /// Создание заметки, используя телефон
+        /// </summary>
+        /// <param name="model">Входная модель заметки</param>
+        [Post("/Note/CreateWithMobile")]
+        Task<NoteModel> CreateWithMobile(NoteInfo model);
     }
 }

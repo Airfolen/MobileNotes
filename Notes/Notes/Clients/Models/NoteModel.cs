@@ -15,6 +15,8 @@ namespace Notes.Clients.Models
 
         public DateTime CreationDate { get; set; }
 
+        public NoteCategory Category { get; set; }
+
         public Guid FileGuid { get; set; }
     }
 }

@@ -43,10 +43,18 @@ namespace Notes
         }
 
         // добавляем одного друга
-        public async Task<NoteModel> Add(NoteModel friend)
-        {        
+        public async Task<NoteModel> Add(NoteModel note)
+        {
+            var dtoModel = new NoteInfo
+            {
+                Title = note.Title,
+                Content = note.Content,
+                Category = Clients.Enums.NoteCategory.Work
+            };
 
-            return friend;
+            var result = await _notesService.CreateWithMobile(dtoModel);
+
+            return result;
         }
         // обновляем друга
         public async Task<NoteModel> Update(NoteModel friend)
