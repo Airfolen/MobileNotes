@@ -31,15 +31,6 @@ namespace Notes
         {
             var notes = await _notesService.GetNotes();
             return notes;
-//            return new List<Friend>()
-//            {
-//                new Friend(){Email = "fdsfds", Name = "sdfdsf", Phone = "sfdsfsdf"},
-//                new Friend(){Email = "fdsfds", Name = "sdfdsf", Phone = "sfdsfsdf"},
-//                new Friend(){Email = "fdsfds", Name = "sdfdsf", Phone = "sfdsfsdf"},
-//                new Friend(){Email = "fdsfds", Name = "sdfdsf", Phone = "sfdsfsdf"},
-//                new Friend(){Email = "fdsfds", Name = "sdfdsf", Phone = "sfdsfsdf"},
-//                new Friend(){Email = "fdsfds", Name = "sdfdsf", Phone = "sfdsfsdf"}
-//            };
         }
 
         // добавляем одного друга
@@ -49,7 +40,7 @@ namespace Notes
             {
                 Title = note.Title,
                 Content = note.Content,
-                Category = Clients.Enums.NoteCategory.Work
+                Category = Clients.Enums.NoteCategory.General
             };
 
             var result = await _notesService.CreateWithMobile(dtoModel);
@@ -57,17 +48,25 @@ namespace Notes
             return result;
         }
         // обновляем друга
-        public async Task<NoteModel> Update(NoteModel friend)
+        public async Task<NoteModel> Update(NoteModel note)
         {
-           
+            var dtoModel = new NoteInfo
+            {
+                Title = note.Title,
+                Content = note.Content,
+                Category = Clients.Enums.NoteCategory.General
+            };
 
-            return friend;
+            var result = await _notesService.UpdateWithMobile(note.NoteGuid, dtoModel);
+
+            return note;
         }
         // удаляем друга
         public async Task<NoteModel> Delete(Guid noteGuid)
         {
-            
-            return new NoteModel();
+            var result = await _notesService.RemoveWithMobile(noteGuid);
+
+            return result;
         }
     }
 }

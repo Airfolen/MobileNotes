@@ -15,7 +15,7 @@
                                     <StackLayout>
                                         <Label Text="{Binding Title}" FontSize="Small" />
                                         <Label Text="{Binding Content}" FontSize="Small" />
-                                        <Label Text="{Binding CreationDate}" FontSize="Small" />
+                                        <Label Text="{Binding CreationDate, StringFormat='{0:dd/MMMM/yyyy h:mm}'}" FontSize="Small" />
                                     </StackLayout>
                                 </Frame>                                
                             </StackLayout>

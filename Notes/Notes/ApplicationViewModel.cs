@@ -121,7 +121,7 @@ namespace Notes
                     // заменяем объект в списке на новый
                     if (updatedFriend != null)
                     {
-                        var pos = Friends.IndexOf(updatedFriend);
+                        var pos = Friends.IndexOf(Friends.Single(a => a.NoteGuid == updatedFriend.NoteGuid));
                         Friends.RemoveAt(pos);
                         Friends.Insert(pos, updatedFriend);
                     }
@@ -131,7 +131,7 @@ namespace Notes
                 {
                     var addedFriend = await friendsService.Add(friend);
                     if (addedFriend != null)
-                        Friends.Add(addedFriend);
+                        Friends.Insert(0, addedFriend);
                 }
 
                 IsBusy = false;
@@ -149,7 +149,7 @@ namespace Notes
                 var deletedFriend = await friendsService.Delete(friend.NoteGuid);
                 if (deletedFriend != null)
                 {
-                    Friends.Remove(deletedFriend);
+                    Friends.Remove(Friends.Single(a => a.NoteGuid == deletedFriend.NoteGuid));
                 }
 
                 IsBusy = false;

@@ -25,5 +25,17 @@ namespace Notes.Clients
         /// <param name="model">Входная модель заметки</param>
         [Post("/Note/CreateWithMobile")]
         Task<NoteModel> CreateWithMobile(NoteInfo model);
+
+        /// <summary>
+        /// Обновление заметки, используя телефон
+        /// </summary>
+        [Put("/Note/UpdateWithMobile/{noteGuid}")]
+        Task<NoteModel> UpdateWithMobile(Guid noteGuid, [Body]NoteInfo model);
+
+        /// <summary>
+        /// Уда заметки, используя телефон
+        /// </summary>
+        [Delete("/Note/RemoveWithMobile/{noteGuid}")]
+        Task<NoteModel> RemoveWithMobile(Guid noteGuid);
     }
 }

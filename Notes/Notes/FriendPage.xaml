@@ -8,8 +8,6 @@
             <Entry Text="{Binding Path=Model.Title}" FontSize="Medium" />
             <Label Text="Содержимое" />
             <Entry Text="{Binding Path=Model.Content}" FontSize="Medium" />
-            <Label Text="Дата создания" />
-            <Entry Text="{Binding Path=Model.CreationDate}" FontSize="Medium" />
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button Text="Сохранить" Command="{Binding ViewModel.SaveFriendCommand}" CommandParameter="{Binding Model}" />
