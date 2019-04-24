@@ -10,9 +10,9 @@
             <Entry Text="{Binding Path=Model.Content}" FontSize="Medium" />
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button Text="Сохранить" Command="{Binding ViewModel.SaveFriendCommand}" CommandParameter="{Binding Model}" />
-            <Button Text="Удалить" Command="{Binding ViewModel.DeleteFriendCommand}" CommandParameter="{Binding Model}" />
-            <Button Text="Назад" Command="{Binding Path=ViewModel.BackCommand}" />
+            <Button Text="Сохранить" Command="{Binding ViewModel.SaveFriendCommand}" CommandParameter="{Binding Model}" FontSize="Micro" />
+            <Button Text="Удалить" Command="{Binding ViewModel.DeleteFriendCommand}" CommandParameter="{Binding Model}" FontSize="Micro"/>
+            <Button Text="Назад" Command="{Binding Path=ViewModel.BackCommand}" FontSize="Micro"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
